@@ -40,7 +40,7 @@ api.post("/keys", arktypeValidator("json", createKeySchema), async (c) => {
     /-/g,
     "",
   );
-  const key = `sk-hc-v1-${initial}`;
+  const key = `sk-hcs-v1-${initial}`;
 
   const [apiKey] = await Sentry.startSpan(
     { name: "db.insert.apiKeys" },
