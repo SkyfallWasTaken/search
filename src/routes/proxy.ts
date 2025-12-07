@@ -173,12 +173,13 @@ proxy.use(
   }),
   timeout(60000),
   (c, next) => {
-    const cfIp = c.req.header("CF-Connecting-IP");
+    let cfIp = c.req.header("CF-Connecting-IP");
     if (!cfIp && env.NODE_ENV !== "development") {
-      throw new HTTPException(400, {
-        message:
-          "Missing CF-Connecting-IP. This is a bug. Please contact support.",
-      });
+      // throw new HTTPException(400, {
+      //   message:
+      //     "Missing CF-Connecting-IP. This is a bug. Please contact support.",
+      // });
+      cfIp = c.req.header("X-Forwarded-For");
     }
     c.set("ip", cfIp || "127.0.0.1");
     return next();
