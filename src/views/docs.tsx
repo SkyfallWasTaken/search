@@ -7,7 +7,9 @@ import { Layout } from "./layout";
 export const Docs = ({ user }: { user: User | null }) => {
   return (
     <Layout title="API Documentation">
-      {user && <Header title="hackai docs" user={user} showBackToDashboard />}
+      {user && (
+        <Header title="hacksearch docs" user={user} showBackToDashboard />
+      )}
 
       {html`
       <style>

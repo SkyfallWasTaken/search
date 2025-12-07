@@ -37,7 +37,7 @@ app.use(
     origin: (origin) => {
       if (
         origin === env.BASE_URL ||
-        origin === "https://ai.hackclub.dev" ||
+        origin === "https://search.hackclub.dev" ||
         (env.NODE_ENV === "development" &&
           origin.startsWith("http://localhost"))
       ) {
